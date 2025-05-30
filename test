@@ -1,0 +1,7 @@
+FROM tenablesc-labbox-image
+
+# Dodaj brakującego użytkownika 'tns'
+RUN groupadd -r tns && useradd -r -g tns -d /opt/sc -s /sbin/nologin tns
+
+# Upewnij się, że katalogi istnieją (niektóre skrypty chcą je dotknąć)
+RUN mkdir -p /opt/sc/support/logs /opt/sc/support/bin /opt/sc/support/etc
